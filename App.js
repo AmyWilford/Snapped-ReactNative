@@ -141,12 +141,20 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#25292e",
+    backgroundColor: "#E1F8F7",
     alignItems: "center",
   },
   imageContainer: {
     flex: 1,
     paddingTop: 58,
+    elevation: 4, 
+    shadowColor: '#000',
+    shadowOpacity: 0.4,
+    shadowRadius: 4,
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
   },
   optionsContainer: {
     position: "absolute",
