@@ -79,15 +79,15 @@ export default function App() {
             selectedImage={selectedImage}
           />
           {pickedEmoji !== null ? (
-            <>
-              <EmojiSticker imageSize={40} stickerSource={pickedEmoji} />
-              <Button label="Remove Sticker" onPress={onRemoveSticker} />
-            </>
+            <EmojiSticker imageSize={40} stickerSource={pickedEmoji} />
           ) : null}
         </View>
       </View>
       {showAppOptions ? (
         <View style={styles.optionsContainer}>
+          <View style={{ display: pickedEmoji ? "block" : "none" }}>
+            <Button label="Remove Sticker" onPress={onRemoveSticker} />
+          </View>
           <View style={styles.optionsRow}>
             <IconButton icon="refresh" label="Reset" onPress={onReset} />
             <CircleButton onPress={onAddSticker} />
@@ -136,6 +136,7 @@ const styles = StyleSheet.create({
   optionsRow: {
     alignItems: "center",
     flexDirection: "row",
+    justifyContent: "center",
   },
   footerContainer: {
     flex: 1 / 3,
