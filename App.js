@@ -15,7 +15,6 @@ import EmojiList from "./components/EmojiList";
 import EmojiSticker from "./components/EmojiSticker";
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
-
 const PlaceholderImage = require("./assets/images/background-image.png");
 
 export default function App() {
@@ -66,7 +65,8 @@ export default function App() {
         });
         await MediaLibrary.saveToLibraryAsync(localUri);
         if (localUri) {
-          alert("image saveed");
+          alert("Your image has been saved");
+          onReset();
         }
       } catch (e) {
         console.log(e);
@@ -98,7 +98,10 @@ export default function App() {
             selectedImage={selectedImage}
           />
           {pickedEmoji !== null ? (
-            <EmojiSticker imageSize={40} stickerSource={pickedEmoji} />
+            <EmojiSticker
+              fontSize={40}
+              stickerSource={pickedEmoji} // Add this prop
+            />
           ) : null}
         </View>
       </View>
@@ -147,8 +150,8 @@ const styles = StyleSheet.create({
   imageContainer: {
     flex: 1,
     paddingTop: 58,
-    elevation: 4, 
-    shadowColor: '#000',
+    elevation: 4,
+    shadowColor: "#000",
     shadowOpacity: 0.4,
     shadowRadius: 4,
     shadowOffset: {
